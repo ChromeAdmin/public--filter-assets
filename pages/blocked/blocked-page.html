@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Page Blocked</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        background: #f5f5f5;
+        color: #333;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .container {
+        background: white;
+        border-radius: 8px;
+        padding: 40px;
+        max-width: 520px;
+        width: 100%;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        font-size: 1.4rem;
+        color: #c0392b;
+        margin-bottom: 16px;
+      }
+      .meta {
+        font-size: 0.875rem;
+        color: #555;
+        margin-bottom: 6px;
+        word-break: break-all;
+      }
+      .meta span {
+        color: #999;
+        font-size: 0.8rem;
+      }
+      .divider {
+        border: none;
+        border-top: 1px solid #eee;
+        margin: 24px 0;
+      }
+      .pin-section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      label {
+        font-size: 0.875rem;
+        color: #555;
+      }
+      input[type="password"] {
+        padding: 10px 12px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        outline: none;
+        width: 100%;
+      }
+      input[type="password"]:focus { border-color: #888; }
+      button {
+        padding: 10px;
+        font-size: 0.875rem;
+        background: #555;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover { background: #333; }
+      .pin-error {
+        font-size: 0.8rem;
+        color: #c0392b;
+        min-height: 1.2em;
+      }
+      .details {
+        margin-top: 24px;
+        border-top: 1px solid #eee;
+        padding-top: 16px;
+      }
+      .details h2 {
+        font-size: 0.875rem;
+        color: #888;
+        font-weight: 500;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .details pre {
+        font-size: 0.78rem;
+        color: #444;
+        background: #f9f9f9;
+        padding: 14px;
+        border-radius: 4px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        word-break: break-all;
+        max-height: 400px;
+        overflow-y: auto;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="reason">Page Blocked</h1>
+      <div id="url" class="meta"></div>
+      <div id="time" class="meta"><span></span></div>
+
+      <hr class="divider">
+
+      <div id="pin-section" class="pin-section">
+        <label for="pin-input">Enter PIN to see block details</label>
+        <input id="pin-input" type="password" placeholder="PIN" autocomplete="off" autofocus>
+        <button id="pin-submit">Show Details</button>
+        <div id="pin-error" class="pin-error"></div>
+      </div>
+
+      <div id="details" class="details" style="display: none">
+        <h2>Block Details</h2>
+        <pre id="details-content"></pre>
+      </div>
+    </div>
+    <script src="blocked.js" type="text/javascript"></script>
+  </body>
+</html>
